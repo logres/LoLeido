@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import User, Organization, Network, Membership, Environment, CertificateRelated
+from .models import User, Organization, Network, Membership, Environment, CertificateRelated
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
