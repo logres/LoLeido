@@ -75,12 +75,12 @@
       "containerId": "xCkDH5sQ03UyguLW-EXdY",
       "originalText": "UI界面表单生成",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
-      "version": 415,
-      "versionNonce": 1320816490,
+      "version": 416,
+      "versionNonce": 2028289412,
       "isDeleted": false,
       "id": "c5CN6N0dCWhRAU2lto2f7",
       "fillStyle": "solid",
@@ -89,7 +89,7 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 227.33334350585938,
+      "x": 229.33334350585938,
       "y": 417.3333206176758,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
@@ -115,14 +115,14 @@
           "type": "arrow"
         }
       ],
-      "updated": 1701850089069,
+      "updated": 1703050634531,
       "link": null,
       "locked": false
     },
     {
       "type": "text",
-      "version": 124,
-      "versionNonce": 490763318,
+      "version": 125,
+      "versionNonce": 535489796,
       "isDeleted": false,
       "id": "01GPEtJ0rygRJ5-r7Ai4K",
       "fillStyle": "solid",
@@ -131,7 +131,7 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 251.00001525878906,
+      "x": 253.00001525878906,
       "y": 442.8333206176758,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
@@ -142,7 +142,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1701850089069,
+      "updated": 1703050634531,
       "link": null,
       "locked": false,
       "fontSize": 20,
@@ -153,7 +153,7 @@
       "containerId": "c5CN6N0dCWhRAU2lto2f7",
       "originalText": "后端根据参数生成脚本",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -235,7 +235,7 @@
       "containerId": "w9YEsyNdnNit7mw8INiLO",
       "originalText": "脚本区块链生成",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -309,12 +309,12 @@
       "containerId": "1gooMllF1FkkdcvYQ_HH_",
       "originalText": "构建区块链监控",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "arrow",
-      "version": 146,
-      "versionNonce": 419794858,
+      "version": 148,
+      "versionNonce": 395213828,
       "isDeleted": false,
       "id": "kyu_H7TG2N9LfeVDTHkDT",
       "fillStyle": "solid",
@@ -327,7 +327,7 @@
       "y": 341.3333511352539,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
-      "width": 1.33331298828125,
+      "width": 0.15437197595645102,
       "height": 67.33331298828125,
       "seed": 1041521673,
       "groupIds": [],
@@ -336,7 +336,7 @@
         "type": 2
       },
       "boundElements": [],
-      "updated": 1701850089069,
+      "updated": 1703050634531,
       "link": null,
       "locked": false,
       "startBinding": {
@@ -358,15 +358,15 @@
           0
         ],
         [
-          -1.33331298828125,
+          -0.15437197595645102,
           67.33331298828125
         ]
       ]
     },
     {
       "type": "arrow",
-      "version": 153,
-      "versionNonce": 261887990,
+      "version": 155,
+      "versionNonce": 416959236,
       "isDeleted": false,
       "id": "yMCgoAaaBiLHprYgmj4J3",
       "fillStyle": "solid",
@@ -375,11 +375,11 @@
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
-      "x": 349.4731882423565,
+      "x": 350.81350567698513,
       "y": 501.333351135254,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
-      "width": 1.6528594183749306,
+      "width": 0.712573179065032,
       "height": 91.99996948242176,
       "seed": 1310172327,
       "groupIds": [],
@@ -388,7 +388,7 @@
         "type": 2
       },
       "boundElements": [],
-      "updated": 1701850089069,
+      "updated": 1703050634531,
       "link": null,
       "locked": false,
       "startBinding": {
@@ -410,7 +410,7 @@
           0
         ],
         [
-          1.6528594183749306,
+          0.712573179065032,
           91.99996948242176
         ]
       ]
@@ -535,7 +535,7 @@
       "containerId": "yF7TWOGoSnDA5tf7FCjjt",
       "originalText": "主要是收集区块结构相关的参数、\n如peer数、orderer数，channel\n等等",
       "lineHeight": 1.25,
-      "baseline": 67
+      "baseline": 68
     },
     {
       "type": "rectangle",
@@ -605,7 +605,7 @@
       "containerId": "0vNNjKb6ogGB3l12Sv_Yi",
       "originalText": "解析前端传递的表单数据，生成\npython or shell 脚本。还需要\n根据参数，决定部署方式——\ndocker-compose/K8S部署，云\n服务器还是物理机。",
       "lineHeight": 1.25,
-      "baseline": 117
+      "baseline": 118
     },
     {
       "type": "rectangle",
@@ -675,7 +675,7 @@
       "containerId": "DR1FVGqMiSzj5UzmcBCR6",
       "originalText": "针对Fabric，可以直接使用Fabric-Explorer进行监控；Firefly，参考kaleido实现。",
       "lineHeight": 1.25,
-      "baseline": 67
+      "baseline": 68
     },
     {
       "type": "rectangle",
@@ -749,7 +749,7 @@
       "containerId": "b7be-HwzCPpKJ_RWmQkZe",
       "originalText": "中台Firefly节点",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "arrow",
@@ -837,7 +837,7 @@
       "containerId": null,
       "originalText": "系统主要设计元素",
       "lineHeight": 1.25,
-      "baseline": 31
+      "baseline": 32
     },
     {
       "type": "rectangle",
@@ -902,7 +902,7 @@
       "containerId": null,
       "originalText": "网络构造流程",
       "lineHeight": 1.25,
-      "baseline": 24
+      "baseline": 25
     },
     {
       "type": "rectangle",
@@ -967,7 +967,7 @@
       "containerId": null,
       "originalText": "资源管理框架",
       "lineHeight": 1.25,
-      "baseline": 24
+      "baseline": 25
     },
     {
       "type": "rectangle",
@@ -1041,7 +1041,7 @@
       "containerId": "ldtzJWhobHonDW6mLgf1Y",
       "originalText": "Org1",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -1119,7 +1119,7 @@
       "containerId": "YPrupGuvxb38B6w8h4xgX",
       "originalText": "Org2",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -1193,7 +1193,7 @@
       "containerId": "jIts5oxsQFSMyV311_31f",
       "originalText": "Org3",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -1267,7 +1267,7 @@
       "containerId": "xiEr_gVzDaITOgVMXa4Hc",
       "originalText": "Consortium1",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -1345,7 +1345,7 @@
       "containerId": "u7c6QdB0xpjTjxORktQfb",
       "originalText": "Consortium2",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -1415,7 +1415,7 @@
       "containerId": "wCHi8cZaq3Jg13HKeYOeR",
       "originalText": "Org1 Member1",
       "lineHeight": 1.25,
-      "baseline": 42
+      "baseline": 43
     },
     {
       "type": "rectangle",
@@ -1485,7 +1485,7 @@
       "containerId": "IU0FfPEKIZlBfbgVhO8gW",
       "originalText": "Org2 Member1",
       "lineHeight": 1.25,
-      "baseline": 42
+      "baseline": 43
     },
     {
       "type": "rectangle",
@@ -1555,7 +1555,7 @@
       "containerId": "J-fKnCPxXFt0seOj_yjXr",
       "originalText": "Org1 Member2",
       "lineHeight": 1.25,
-      "baseline": 42
+      "baseline": 43
     },
     {
       "type": "arrow",
@@ -1829,7 +1829,7 @@
       "containerId": "0LKYDA1AazH7WFjIrqr0L",
       "originalText": "Org2 Member1",
       "lineHeight": 1.25,
-      "baseline": 42
+      "baseline": 43
     },
     {
       "type": "rectangle",
@@ -1899,7 +1899,7 @@
       "containerId": "KOB9U3Z-sAgJZiGygAiHX",
       "originalText": "Org3 Member1",
       "lineHeight": 1.25,
-      "baseline": 42
+      "baseline": 43
     },
     {
       "type": "rectangle",
@@ -1969,7 +1969,7 @@
       "containerId": "bm4XZ5rBY1UBJwf1hm2nR",
       "originalText": "Environment",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "rectangle",
@@ -2039,7 +2039,7 @@
       "containerId": "VI2rqQghODql2bC6ECw9G",
       "originalText": "Environment",
       "lineHeight": 1.25,
-      "baseline": 17
+      "baseline": 18
     },
     {
       "type": "line",
@@ -2153,7 +2153,7 @@
       "containerId": "DU0pXRxmyGWevP6GrYukl",
       "originalText": "Organization作为系统用户的接入点，用户以组织的身份联合创建联盟，并以Member为基本单位创建、管理与访问资源。Environment作为隔离资源的封装，包含Node、Service等元素。",
       "lineHeight": 1.25,
-      "baseline": 142
+      "baseline": 143
     },
     {
       "type": "text",
@@ -2189,7 +2189,144 @@
       "containerId": null,
       "originalText": "目前参考Kaleido的资源模型",
       "lineHeight": 1.25,
-      "baseline": 31
+      "baseline": 32
+    },
+    {
+      "type": "rectangle",
+      "version": 257,
+      "versionNonce": 1489955051,
+      "isDeleted": false,
+      "id": "7JcQPGQf6DyYiXfuHgV0N",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 470.19930402339526,
+      "y": 989.6671130971832,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 1077.215347291732,
+      "height": 543.191524653252,
+      "seed": 14760837,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [],
+      "updated": 1701932609026,
+      "link": null,
+      "locked": false
+    },
+    {
+      "type": "text",
+      "version": 40,
+      "versionNonce": 644239435,
+      "isDeleted": false,
+      "id": "u6hzTLk2QxbBszhCn0O6P",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 858.6843817817336,
+      "y": 1027.0681480262817,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 224,
+      "height": 35,
+      "seed": 1443009093,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1701932090391,
+      "link": null,
+      "locked": false,
+      "fontSize": 28,
+      "fontFamily": 1,
+      "text": "物理资源控制方案",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "物理资源控制方案",
+      "lineHeight": 1.25,
+      "baseline": 25
+    },
+    {
+      "type": "text",
+      "version": 323,
+      "versionNonce": 1440517892,
+      "isDeleted": false,
+      "id": "egCs0CtAx5xf3F6qX8xal",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 562.755606028892,
+      "y": 1197.350941355335,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 812.4759521484375,
+      "height": 70,
+      "seed": 616635397,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1703050252499,
+      "link": null,
+      "locked": false,
+      "fontSize": 28,
+      "fontFamily": 1,
+      "text": "1. 使用K8S控制多物理机资源，系统仅与K8S交互进行部署与管控\n（下位DEMO 单机使用Docker-Engine编排链集群）✔",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "1. 使用K8S控制多物理机资源，系统仅与K8S交互进行部署与管控\n（下位DEMO 单机使用Docker-Engine编排链集群）✔",
+      "lineHeight": 1.25,
+      "baseline": 60
+    },
+    {
+      "type": "text",
+      "version": 529,
+      "versionNonce": 2130814757,
+      "isDeleted": false,
+      "id": "ToLmppehxmz6Lr1Yn2H2a",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "x": 556.729993165323,
+      "y": 1352.6303925767709,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "width": 874.69189453125,
+      "height": 70,
+      "seed": 1690366699,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "boundElements": [],
+      "updated": 1701933197709,
+      "link": null,
+      "locked": false,
+      "fontSize": 28,
+      "fontFamily": 1,
+      "text": "2. 使用K8S控制多物理机资源，模拟物理机，然后使用SSH接入系统，\n与K8S解耦，适配多物理机环境。具备硬件资源分配能力。",
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "2. 使用K8S控制多物理机资源，模拟物理机，然后使用SSH接入系统，\n与K8S解耦，适配多物理机环境。具备硬件资源分配能力。",
+      "lineHeight": 1.25,
+      "baseline": 60
     }
   ],
   "appState": {

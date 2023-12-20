@@ -1,0 +1,30 @@
+# 忽略venv目录
+venv/
+
+# 忽略SQLite数据库文件
+*.sqlite3
+
+# 忽略SQLite数据库文件的备份
+*.sqlite3.backup
+
+# 忽略SQLite数据库文件的临时文件
+*.sqlite3-journal
+
+# 忽略Python字节码文件
+__pycache__/
+
+# 忽略Python虚拟环境目录
+.env/
+
+# 忽略编辑器/IDE生成的文件和目录
+.vscode/
+.idea/
+*.pyc
+
+# 忽略日志文件
+*.log
+
+# 忽略其他临时文件
+*.tmp
+*.bak
+*.swp
