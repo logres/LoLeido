@@ -30,23 +30,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # register
-    @swagger_auto_schema(
-        request_body=UserSerializer,
-        responses={200: UserSerializer},
-        operation_id="create_user",
-    )
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
-
-    # update
-    @swagger_auto_schema(
-        request_body=UserSerializer,
-        responses={200: UserSerializer},
-        operation_id="update_user",
-    )
-    def update(self, request, *args, **kwargs):
-        return super().update(request, *args, **kwargs)
 
 
 class OrganizationViewSet(viewsets.ModelViewSet):
@@ -57,15 +40,6 @@ class OrganizationViewSet(viewsets.ModelViewSet):
     queryset = Organization.objects.all()
     serializer_class = OrganizationSerializer
 
-    # Create
-    # A User will be Created with a Organization
-    @swagger_auto_schema(
-        request_body=OrganizationSerializer,
-        responses={200: OrganizationSerializer},
-        operation_id="create_organization",
-    )
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
 
 class NetworkViewSet(viewsets.ModelViewSet):
     """
@@ -75,15 +49,6 @@ class NetworkViewSet(viewsets.ModelViewSet):
     queryset = Network.objects.all()
     serializer_class = NetworkSerializer
 
-    # Create
-    # A Network is a combination of Some Organizations, and will be init with an Organization
-    @swagger_auto_schema(
-        request_body=NetworkSerializer,
-        responses={200: NetworkSerializer},
-        operation_id="create_network",
-    )
-    def create(self, request, *args, **kwargs):
-        return super().create(request, *args, **kwargs)
 
 class MembershipViewSet(viewsets.ModelViewSet):
     """
