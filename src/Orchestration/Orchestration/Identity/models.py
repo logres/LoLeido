@@ -85,7 +85,6 @@ class CertificateRelated (models.Model):
     name = models.CharField(max_length=100)
     certificate = models.CharField(max_length=10000)
     private_key = models.CharField(max_length=10000)
-    public_key = models.CharField(max_length=10000)
 
 # Resource 
 ## Fabric 
@@ -94,35 +93,27 @@ class FabricCA (models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False, unique=True, blank=True)
     name = models.CharField(max_length=100) # CA Name
     environment = models.ForeignKey(Environment, on_delete=models.CASCADE)
+    container_name = models.CharField(max_length=100)
+    remote_server = models.CharField(max_length=100)
+    # set unique constraint for container_name and remote_server
+    # ca_related = models.ForeignKey(CertificateRelated, on_delete=models.CASCADE)
+    class Meta:
+        unique_together = ('container_name', 'remote_server',)
+
 
 class NodeType(Enum):
     PEER = "PEER"
     ORDERER = "ORDERER"
 
-class Node (models.Model):
+class FabricNode (models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False, unique=True, blank=True)
     name = models.CharField(max_length=100)
     network = models.ForeignKey(Network, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     environment = models.ForeignKey(Environment, on_delete=models.CASCADE)
     node_type = models.CharField(max_length=100, choices=[(tag, tag.value) for tag in NodeType])
-    # certificate_related = models.ForeignKey(CertificateRelated, on_delete=models.CASCADE)
-
-
-
-# class FabricClient (models.Model):
-#     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False, unique=True, blank=True)
-#     name = models.CharField(max_length=100)
-#     network = models.ForeignKey(Network, on_delete=models.CASCADE)
-#     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
-#     environment = models.ForeignKey(Environment, on_delete=models.CASCADE)
-    # certificate_related = models.ForeignKey(CertificateRelated, on_delete=models.CASCADE)
-
-# class FabricAdmin (models.Model):
-#     id = models.UUIDField(primary_key=True,default=uuid.uuid4, editable=False, unique=True, blank=True)
-#     name = models.CharField(max_length=100)
-#     network = models.ForeignKey(Network, on_delete=models.CASCADE)
-#     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
-#     environment = models.ForeignKey(Environment, on_delete=models.CASCADE)
-    # certificate_related = models.ForeignKey(CertificateRelated, on_delete=models.CASCADE)
-
+    container_name = models.CharField(max_length=100)
+    remote_server = models.CharField(max_length=100)
+    certificate_related = models.ForeignKey(CertificateRelated, on_delete=models.CASCADE)
+    class Meta:
+        unique_together = ('container_name', 'remote_server',)
