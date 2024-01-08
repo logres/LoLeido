@@ -14,7 +14,7 @@ init_and_check()
 
 app = FastAPI()
 
-# app.include_router(router=fabric_related.router)
+app.include_router(router=fabric_related.router)
 app.include_router(router=ca_related.router)
 # app.include_router(router=ethereum_related.router)
 

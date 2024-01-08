@@ -1,5 +1,4 @@
-from fastapi import APIRouter
-from fastapi import status
+from fastapi import APIRouter,status
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from resource import get_docker_client
@@ -237,8 +236,6 @@ def access_ca(request: CAAccessRequest):
                 "pk": "",
                 "cert": "",
             }
-            # set priviledge
-
             # get pk and cert
             folder_path = f"{STORAGE_PATH}/fabric-ca-servers/{name}/client/{args}/msp/keystore/"
             files = glob.glob(os.path.join(folder_path, "*_sk"))

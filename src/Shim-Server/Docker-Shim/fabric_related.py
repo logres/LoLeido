@@ -2,6 +2,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from resource import get_docker_client
 import sys
+import os
 import logging
 from fastapi import APIRouter
 from config import STORAGE_PATH, PASS_CODE, FAIL_CODE
@@ -21,10 +22,6 @@ class NodeCreateRequest(BaseModel):
     type: str
     port_map: dict
 
-class NodeOperateRequest(BaseModel):
-    action: str
-    form: dict
-
 @router.get('/api/v1/networks')
 def get_network():
     container_list = client.containers.list()
@@ -43,7 +40,7 @@ def get_network():
 
 @router.post('/api/v1/nodes')
 def create_node(request: NodeCreateRequest):
-    node_name = request.name
+    node_name = f"{request.name}-{request.type}-fabric-node"
     env = {
         'HLF_NODE_MSP': request.msp,
         'HLF_NODE_TLS': request.tls,
@@ -123,13 +120,68 @@ def create_node(request: NodeCreateRequest):
     res['msg'] = 'node created'
     return JSONResponse(content=res)
 
+class NodeCreateRequestDefault(BaseModel):
+    name: str
+    cert: str
+    privatekey: str
 
-@router.get('/api/v1/nodes/{id}')
-async def get_node(id: str):
-    container = client.containers.get(id)
+@router.post('/api/v1/nodes/default')
+def create_default_node(request: NodeCreateRequestDefault):
+    certificate = request.cert
+    privatekey = request.privatekey
+    node_name = f"{request.name}-default-fabric-node"
+    env = {
+        'HLF_NODE_MSP': certificate,
+        'HLF_NODE_TLS': privatekey,
+        'HLF_NODE_BOOTSTRAP_BLOCK': '',
+        'HLF_NODE_PEER_CONFIG': '',
+        'HLF_NODE_ORDERER_CONFIG': '',
+        'platform': 'linux/amd64',
+    }
+    port_map = {
+        '7051/tcp': 7051,
+        '7052/tcp': 7052,
+        '7053/tcp': 7053,
+    }
+    volumes = {
+        os.path.abspath(f'{STORAGE_PATH}/fabric/{node_name}'): {'bind': '/etc/hyperledger/fabric', 'mode': 'rw'},
+        os.path.abspath(f'{STORAGE_PATH}/production/{node_name}'): {'bind': '/var/hyperledger/production', 'mode': 'rw'}
+    }
+    
+    # [
+    #     f'{STORAGE_PATH}/fabric/{node_name}:/etc/hyperledger/fabric',
+    #     f'{STORAGE_PATH}/production/{node_name}:/var/hyperledger/production'
+    # ]
+    try:
+        container = client.containers.run(
+            'hyperledger/fabric-peer:2.2',
+            'peer node start',
+            detach=True,
+            tty=True,
+            stdin_open=True,
+            network="cello-net",
+            name=request.name,
+            dns_search=["."],
+            volumes=volumes,
+            environment=env,
+            ports=port_map
+        )
+    except Exception as e:
+        print(e)
+        return JSONResponse(content={'code': FAIL_CODE, 'msg': 'creation failed'})
+    return JSONResponse(content={'code': PASS_CODE, 'msg': 'node created'})
+
+
+@router.get('/api/v1/nodes/{name}')
+async def get_node(name: str):
+    container = client.containers.get(f"{name}-")
     return {'status': container.status}
 
-@router.put('/api/v1/nodes/{id}')
+class NodeOperateRequest(BaseModel):
+    action: str
+    form: dict
+
+@router.post('/api/v1/nodes/{id}/operation')
 async def operate_node(id: str, request: NodeOperateRequest):
     container = client.containers.get(id)
     res = {'code': PASS_CODE}
