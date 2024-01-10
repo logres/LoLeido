@@ -120,58 +120,6 @@ def create_node(request: NodeCreateRequest):
     res['msg'] = 'node created'
     return JSONResponse(content=res)
 
-class NodeCreateRequestDefault(BaseModel):
-    name: str
-    cert: str
-    privatekey: str
-
-@router.post('/api/v1/nodes/default')
-def create_default_node(request: NodeCreateRequestDefault):
-    certificate = request.cert
-    privatekey = request.privatekey
-    node_name = f"{request.name}-default-fabric-node"
-    env = {
-        'HLF_NODE_MSP': certificate,
-        'HLF_NODE_TLS': privatekey,
-        'HLF_NODE_BOOTSTRAP_BLOCK': '',
-        'HLF_NODE_PEER_CONFIG': '',
-        'HLF_NODE_ORDERER_CONFIG': '',
-        'platform': 'linux/amd64',
-    }
-    port_map = {
-        '7051/tcp': 7051,
-        '7052/tcp': 7052,
-        '7053/tcp': 7053,
-    }
-    volumes = {
-        os.path.abspath(f'{STORAGE_PATH}/fabric/{node_name}'): {'bind': '/etc/hyperledger/fabric', 'mode': 'rw'},
-        os.path.abspath(f'{STORAGE_PATH}/production/{node_name}'): {'bind': '/var/hyperledger/production', 'mode': 'rw'}
-    }
-    
-    # [
-    #     f'{STORAGE_PATH}/fabric/{node_name}:/etc/hyperledger/fabric',
-    #     f'{STORAGE_PATH}/production/{node_name}:/var/hyperledger/production'
-    # ]
-    try:
-        container = client.containers.run(
-            'hyperledger/fabric-peer:2.2',
-            'peer node start',
-            detach=True,
-            tty=True,
-            stdin_open=True,
-            network="cello-net",
-            name=request.name,
-            dns_search=["."],
-            volumes=volumes,
-            environment=env,
-            ports=port_map
-        )
-    except Exception as e:
-        print(e)
-        return JSONResponse(content={'code': FAIL_CODE, 'msg': 'creation failed'})
-    return JSONResponse(content={'code': PASS_CODE, 'msg': 'node created'})
-
-
 @router.get('/api/v1/nodes/{name}')
 async def get_node(name: str):
     container = client.containers.get(f"{name}-")
@@ -232,3 +180,58 @@ async def operate_node(id: str, request: NodeOperateRequest):
         raise
 
     return res
+
+class NodeCreateRequestDefault(BaseModel):
+    name: str
+    cert: str
+    privatekey: str
+
+@router.post('/api/v1/nodes/default')
+def create_default_node(request: NodeCreateRequestDefault):
+    certificate = request.cert
+    privatekey = request.privatekey
+    node_name = f"{request.name}-default-fabric-node"
+    env = {
+        'HLF_NODE_MSP': certificate,
+        'HLF_NODE_TLS': privatekey,
+        'HLF_NODE_BOOTSTRAP_BLOCK': '',
+        'HLF_NODE_PEER_CONFIG': '',
+        'HLF_NODE_ORDERER_CONFIG': '',
+        'platform': 'linux/amd64',
+    }
+    port_map = {
+        '7051/tcp': 7051,
+        '7052/tcp': 7052,
+        '7053/tcp': 7053,
+    }
+    volumes = {
+        os.path.abspath(f'{STORAGE_PATH}/fabric/{node_name}'): {'bind': '/etc/hyperledger/fabric', 'mode': 'rw'},
+        os.path.abspath(f'{STORAGE_PATH}/production/{node_name}'): {'bind': '/var/hyperledger/production', 'mode': 'rw'}
+    }
+    
+    # [
+    #     f'{STORAGE_PATH}/fabric/{node_name}:/etc/hyperledger/fabric',
+    #     f'{STORAGE_PATH}/production/{node_name}:/var/hyperledger/production'
+    # ]
+    try:
+        container = client.containers.run(
+            'hyperledger/fabric-peer:2.2',
+            'peer node start',
+            detach=True,
+            tty=True,
+            stdin_open=True,
+            network="cello-net",
+            name=request.name,
+            dns_search=["."],
+            volumes=volumes,
+            environment=env,
+            ports=port_map
+        )
+    except Exception as e:
+        print(e)
+        return JSONResponse(content={'code': FAIL_CODE, 'msg': 'creation failed'})
+    return JSONResponse(content={'code': PASS_CODE, 'msg': 'node created'})
+
+@router.post('/api/v1/nodes/default/operation')
+def operate_node_default():
+    pass

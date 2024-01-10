@@ -1,0 +1,10 @@
+export API_ENGINE_WEBROOT?=/engine
+export POSTGRES_USER?=admin
+export POSTGRES_PASSWORD?=password
+export API_ENGINE_SERVICE_PORT?=8085
+export API_ENGINE_ADMIN_TOKEN?=administrator
+export API_ENGINE_ADMIN_USERNAME?=admin
+export API_ENGINE_ADMIN_PASSWORD?=pass
+export API_ENGINE_ADMIN_EMAIL?=admin@cello.com
+export API_DOCKER_HOST?=unix://var/run/docker.sock
+export API_VERSION?=master
